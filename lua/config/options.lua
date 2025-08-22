@@ -3,17 +3,18 @@
 -- Add any additional options here
 -- lua/config/options.lua
 -- Options are automatically loaded before lazy.nvim startup
-
--- Set leader keys
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-
 -- LazyVim settings
 -- vim.g.lazyvim_check_order = false -- Uncomment to disable plugin order check
 
-local opt = vim.opt
+-- Python provider (optional, speeds up startup)
+vim.g.python3_host_prog = vim.fn.expand("~/anaconda/bin/python") -- Adjust path as needed
 
 -- General
+-- Set leader keys
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+local opt = vim.opt
+
 opt.autowrite = true -- Enable auto write
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
 opt.completeopt = "menu,menuone,noselect"
@@ -71,9 +72,6 @@ opt.foldlevel = 99
 
 -- Transparency support
 opt.winblend = 0 -- Window transparency (0 = opaque, 100 = transparent)
-
--- Python provider (optional, speeds up startup)
--- vim.g.python3_host_prog = vim.fn.expand("~/anaconda3/bin/python") -- Adjust path as needed
 
 -- Fix markdown indentation settings
 vim.g.markdown_recommended_style = 0

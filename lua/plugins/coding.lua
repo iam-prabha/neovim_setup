@@ -7,27 +7,6 @@ return {
         pyright = {
           settings = {
             python = {
-              pythonPath = function()
-                local conda_prefix = vim.fn.getenv("CONDA_PREFIX")
-                if conda_prefix and conda_prefix ~= vim.NIL then
-                  local conda_python = conda_prefix .. "/bin/python"
-                  if vim.fn.executable(conda_python) == 1 then
-                    return conda_python
-                  end
-                end
-
-                local venv_python = vim.fn.executable("python") == 1 and vim.fn.exepath("python") or nil
-                if venv_python and (venv_python:find("/.venv/") or venv_python:find("/venv/")) then
-                  return venv_python
-                end
-
-                local conda_base = vim.fn.expand("~/anaconda/bin/python")
-                if vim.fn.executable(conda_base) == 1 then
-                  return conda_base
-                end
-
-                return vim.fn.exepath("python3") or vim.fn.exepath("python")
-              end,
               analysis = {
                 autoSearchPaths = true,
                 useLibraryCodeForTypes = true,
